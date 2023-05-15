@@ -1,0 +1,9 @@
+{
+  "apple-swift-format.onlyEnableOnSwiftPMProjects": true,
+  "apple-swift-format.configSearchPaths": [
+      ".swift-format",
+      ".config/swift-format.json"
+  ],
+  "editor.formatOnSave": true,
+  "lldb.library": "/Applications/Xcode_14.2.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB"
+}

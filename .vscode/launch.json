@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "name": "Debug log-example",
+      "program": "${workspaceFolder:file-reader-async-example}/.build/debug/log-example",
+      "args": [],
+      "cwd": "${workspaceFolder:file-reader-async-example}",
+      "preLaunchTask": "swift: Build Debug log-example"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "name": "Release log-example",
+      "program": "${workspaceFolder:file-reader-async-example}/.build/release/log-example",
+      "args": [],
+      "cwd": "${workspaceFolder:file-reader-async-example}",
+      "preLaunchTask": "swift: Build Release log-example"
+    }
+  ]
+}
