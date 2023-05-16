@@ -8,7 +8,9 @@ struct LogExample: AsyncParsableCommand {
       "Log Example will create test log files and help you analyze them to understand the performance implications of different methods",
     version: "1.0.0",
     subcommands: [
-      GenerateLogs.self
+      GenerateLogs.self,
+      AnalyzeSynchronously.self,
+      AnalyzeParallel.self,
     ]
   )
 }
