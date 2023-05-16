@@ -13,6 +13,7 @@ struct LogExample: AsyncParsableCommand {
       AnalyzeParallelLoad.self,
       AnalyzeParallelStream.self,
       AnalyzeParallelCappedConcurrencyStream.self,
+      AnalyzeExample.self,
     ]
   )
 }
