@@ -10,7 +10,9 @@ struct LogExample: AsyncParsableCommand {
     subcommands: [
       GenerateLogs.self,
       AnalyzeSynchronously.self,
-      AnalyzeParallel.self,
+      AnalyzeParallelLoad.self,
+      AnalyzeParallelStream.self,
+      AnalyzeParallelCappedConcurrencyStream.self,
     ]
   )
 }

@@ -15,7 +15,6 @@ struct AnalyzeSynchronously: ParsableCommand {
   var path: String
 
   func run() throws {
-    let entries = try SynchronousLogEntriesLoader().loadEntries(atPath: path)
     var traceCount = 0
     var debugCount = 0
     var infoCount = 0
@@ -23,6 +22,8 @@ struct AnalyzeSynchronously: ParsableCommand {
     var warningCount = 0
     var errorCount = 0
     var criticalCount = 0
+
+    let entries = try SynchronousLogEntriesLoader().loadEntries(atPath: path)
 
     for entry in entries {
       switch entry.level {

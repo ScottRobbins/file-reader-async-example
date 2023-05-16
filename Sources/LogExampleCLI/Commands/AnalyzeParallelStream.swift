@@ -1,9 +1,9 @@
 import ArgumentParser
 import Rainbow
 
-struct AnalyzeParallelLoad: AsyncParsableCommand {
+struct AnalyzeParallelStream: AsyncParsableCommand {
   static var configuration = CommandConfiguration(
-    commandName: "analyze-parallel-load",
+    commandName: "analyze-parallel-stream",
     abstract: "Will count the number of logs for each level"
   )
 
@@ -23,9 +23,9 @@ struct AnalyzeParallelLoad: AsyncParsableCommand {
     var errorCount = 0
     var criticalCount = 0
 
-    let entries = try await ParallelLogEntriesLoader().loadEntries(atPath: path)
+    let entries = ParallelLogEntriesStreamer().loadEntries(atPath: path)
 
-    for entry in entries {
+    for await entry in entries {
       switch entry.level {
       case .trace:
         traceCount += 1
