@@ -10,6 +10,7 @@ struct LogFilesGenerator {
   private let infoEntry = LogEntry(
     timestamp: Date.now, level: .info,
     message: "This is some generally good information about what's happening in the application")
+  private let maxConcurrentTasks = 10
 
   func generateLogFiles(number numFiles: Int, entriesPerFile: Int, to path: String) async throws {
     let folder = try Folder(path: path)
@@ -17,8 +18,14 @@ struct LogFilesGenerator {
     // Clean up any old files in this folder
     try folder.files.delete()
 
-    await withThrowingTaskGroup(of: Void.self) { group in
+    try await withThrowingTaskGroup(of: Void.self) { group in
+      var taskCounter = 0
       for fileNumber in 0..<numFiles {
+        if taskCounter > maxConcurrentTasks {
+          let _ = try await group.next()
+        }
+
+        taskCounter += 1
         group.addTask {
           try generateLogFile(
             fileNumber: fileNumber, entriesPerFile: entriesPerFile, to: folder)
