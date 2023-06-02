@@ -1,5 +1,4 @@
 import ArgumentParser
-import Rainbow
 
 struct AnalyzeSynchronously: ParsableCommand {
   static var configuration = CommandConfiguration(

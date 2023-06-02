@@ -1,3 +1,5 @@
+import Rainbow
+
 struct AnalysisDisplayer {
   func display(with logEntryLevelTracker: LogEntryLevelTracker) {
     print("Analysis")

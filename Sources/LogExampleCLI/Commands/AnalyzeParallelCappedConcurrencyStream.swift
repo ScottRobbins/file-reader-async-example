@@ -1,5 +1,4 @@
 import ArgumentParser
-import Rainbow
 
 struct AnalyzeParallelCappedConcurrencyStream: AsyncParsableCommand {
   static var configuration = CommandConfiguration(
