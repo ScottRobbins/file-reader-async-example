@@ -1,7 +1,8 @@
 import Files
+import Foundation
 
 struct ParallelLogEntriesCappedConcurrencyStreamer {
-  private let maxConcurrentTasks = 10
+  private let maxConcurrentTasks = ProcessInfo.processInfo.activeProcessorCount
 
   func loadEntries(atPath path: String) -> AsyncStream<LogEntry> {
     return AsyncStream<LogEntry> { continuation in

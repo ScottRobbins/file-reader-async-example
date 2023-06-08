@@ -10,7 +10,7 @@ struct LogFilesGenerator {
   private let infoEntry = LogEntry(
     timestamp: Date.now, level: .info,
     message: "This is some generally good information about what's happening in the application")
-  private let maxConcurrentTasks = 10
+  private let maxConcurrentTasks = ProcessInfo.processInfo.activeProcessorCount
 
   func generateLogFiles(number numFiles: Int, entriesPerFile: Int, to path: String) async throws {
     let folder = try Folder(path: path)
